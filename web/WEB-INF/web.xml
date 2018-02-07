@@ -4,10 +4,18 @@
         <servlet-name>VerySimpleServelet</servlet-name>
         <servlet-class>sit.int303.demo.servelet.VerySimpleServelet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReadFavoriteSubjectServlet</servlet-name>
+        <servlet-class>sit.int303.demo.servelet.ReadFavoriteSubjectServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerySimpleServelet</servlet-name>
         <url-pattern>/VerySimple</url-pattern>
         <url-pattern>/vs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReadFavoriteSubjectServlet</servlet-name>
+        <url-pattern>/ReadFavoriteSubject</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
