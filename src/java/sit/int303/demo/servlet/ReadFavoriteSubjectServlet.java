@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sit.int303.demo.servelet;
+package sit.int303.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +31,16 @@ public class ReadFavoriteSubjectServlet extends HttpServlet {
    */
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
+    
+    String name = request.getParameter("name");
+    if(name.trim().length() == 0) {
+      name = "*** Missing name ***";
+    }
+    request.setCharacterEncoding("utf8");
+    String email = request.getParameter("email");
+    String[] favoriteSubjects = request.getParameterValues("subjects");
+    Map<String, String[]> paramMap = request.getParameterMap();
+    
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter()) {
       /* TODO output your page here. You may use following sample code. */
@@ -38,7 +50,25 @@ public class ReadFavoriteSubjectServlet extends HttpServlet {
       out.println("<title>Servlet ReadFavoriteSubjectServlet</title>");      
       out.println("</head>");
       out.println("<body>");
-      out.println("<h1>Servlet ReadFavoriteSubjectServlet at " + request.getContextPath() + "</h1>");
+      out.println("<h3>Parameters: </h3><hr>");
+      out.println("Name = " + name + "<br />");
+      out.println("Email Address = " + email + "<br />");
+      out.println("Favorite Subjects: <br/>");
+      for (String favSubj : favoriteSubjects) {
+        out.println("&nbsp; &nbsp; <input type='checkbox' checked />" + favSubj + "<br>");
+      }
+      out.println("<hr>");
+      
+      out.println("<h3>Parameters Using Map: </h3> <hr>");
+      Set<Map.Entry<String, String[]>> entrySet = paramMap.entrySet();
+      for (Map.Entry<String, String[]> entry : entrySet) {
+        String[] values = entry.getValue();
+        out.println(entry.getKey() + ": ");
+        out.println(String.join(", ", values));
+        out.print("\b\b<br>");
+      }
+      out.println("<hr>");
+      out.println("<a href='FavoriteSubjectForm.html'>Go to Form</a>");
       out.println("</body>");
       out.println("</html>");
     }
