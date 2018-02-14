@@ -12,6 +12,10 @@
         <servlet-name>ProductManagerServlet</servlet-name>
         <servlet-class>sit.int303.demo.servlet.ProductManagerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductListServelet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.ProductListServelet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerySimpleServelet</servlet-name>
         <url-pattern>/VerySimple</url-pattern>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>ProductManagerServlet</servlet-name>
         <url-pattern>/ProductManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductListServelet</servlet-name>
+        <url-pattern>/ProductList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
