@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +19,11 @@
             <div class="row justify-content-center">
                 <div class="col-sm-10 col-lg-8 text-center">
                     <h3 class="text-left">Product Info ::</h3>
-                    <img width="500" src="model-images/bnk.jpg" alt="image-banner" >
+                    <c:set var="p" value="${product}"/>
+                    <c:set var="cutPos" value="${fn:indexOf(p.productline.productline, ' ')}"/>
+                    <c:set var="path" value="${cutPos > 0 ? fn:substring(p.productline.productline, 0, cutPos) : p.productline.productline}"/>
+                    <c:set var="imgFile" value="model-images/${fn:toLowerCase(path)}/${p.productcode}.jpg"/>
+                    <img class="img-thumbnail"  src="${imgFile}" title="${p.productcode}" alt="image-banner" width="420">
                 </div>
             </div>
             <div class="row justify-content-center">

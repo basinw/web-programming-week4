@@ -26,7 +26,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-10 col-md-8">
-                    <h3>Product List ::</h3> <hr />
+                    <button onClick="function () {window.alert('hello')}">button</button>
+                    <h3>Product List :: </h3> <hr />
                     <form action="ProductList" method="post">
                         <table class="table-striped table-bordered">
                             <tr>
@@ -39,6 +40,7 @@
                                 <td>
                                     <button class="btn btn-primary">submit</button>
                                 </td>
+                                <td style="padding-left: 100px">Your Cart: ${cart.size}</td>
                             </tr>
                         </table>
                     </form>
@@ -56,12 +58,17 @@
                             <c:set var="imgFile" value="model-images/${fn:toLowerCase(path)}/${p.productcode}.jpg"/>
                             <div class="col-md-3">
                                 <div class="thumbnail">
-                                    <a href="">
+                                    <a href="ProductManager?productCode=${p.productcode}">
                                         <img class="img-thumbnail"  src="${imgFile}" title="${p.productcode}">
-                                        <div class="caption">
-                                            <p>${p.productname}  | Scale:  ${p.productscale}  | Price: ${p.msrp} $US </p>
-                                        </div>
                                     </a>
+                                    <a href="AddItemToCart?item=${p.productcode}">
+                                        <img src="https://scraperking.com/wp-content/uploads/2015/01/Amazon_logo-9.gif" width="20px"/>
+                                    </a>
+                                    
+                                    <div class="caption">
+                                        <p>${p.productname}  | Scale:  ${p.productscale}  | Price: ${p.msrp} $US </p>
+
+                                    </div>
                                 </div>
                             </div>
                         </c:forEach>
