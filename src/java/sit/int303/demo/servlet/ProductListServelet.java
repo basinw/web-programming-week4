@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,7 +45,17 @@ public class ProductListServelet extends HttpServlet {
     String productName = request.getParameter("productName");
     ProductJpaController productJpaCtrl = new ProductJpaController(utx, emf);
     if (productName == null) {
-      List<Product> products = productJpaCtrl.findProductEntities();
+      List<Product> products = null;
+      Cookie cookies[] = request.getCookies();
+      products = productJpaCtrl.findProductEntities();
+      if(cookies != null) {
+        for (Cookie ck : cookies) {
+          if (ck.getName().equalsIgnoreCase("lastKey")) {
+            products = productJpaCtrl.findByProductName(ck.getValue());
+            break;
+          }
+        }
+      }
       request.setAttribute("products", products);
     } else {
       List<Product> products = productJpaCtrl.findByProductName(productName);
@@ -52,12 +63,15 @@ public class ProductListServelet extends HttpServlet {
         request.setAttribute("message", "Product " + productName + " does not exist!!!");
       } else {
         request.setAttribute("products", products);
+        Cookie ck = new Cookie("lastKey", productName);
+//        ck.setMaxAge(7 * 24 * 60 * 60); //cookie 1 week
+        response.addCookie(ck);
       }
 
     }
     
-//    getServletContext().getRequestDispatcher("/ProductList.jsp").forward(request, response);
-    getServletContext().getRequestDispatcher("/ProductListUsingDatatable.jsp").forward(request, response);
+    getServletContext().getRequestDispatcher("/ProductList.jsp").forward(request, response);
+//    getServletContext().getRequestDispatcher("/ProductListUsingDatatable.jsp").forward(request, response);
   }
 
   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
