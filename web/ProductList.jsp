@@ -40,7 +40,12 @@
                                 <td>
                                     <button class="btn btn-primary">submit</button>
                                 </td>
-                                <td style="padding-left: 100px">Your Cart: ${cart.size}</td>
+                                <td style="padding-left: 100px; width: 40%; text-align: right;">
+                                    <a href="ViewCart">
+                                        <img src="https://scraperking.com/wp-content/uploads/2015/01/Amazon_logo-9.gif" width="20px"/>
+                                    </a>
+                                    ${cart.size}
+                                </td>
                             </tr>
                         </table>
                     </form>

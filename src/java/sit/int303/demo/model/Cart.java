@@ -17,6 +17,10 @@ public class Cart {
 
   private Map<OrderDetailPK, OrderDetail> cart;
 
+  public Collection<OrderDetail> getOrders() {
+    return cart.values();
+  }
+  
   public boolean isEmpty() {
     return this.cart == null || this.cart.size() == 0;
   }
@@ -33,7 +37,6 @@ public class Cart {
       return;
     }
     OrderDetail temp = cart.get(orderdetail.getOrderDetailPK());
-    System.out.println(temp.getProduct().getProductname());
     if (temp == null) {
       cart.put(orderdetail.getOrderDetailPK(), orderdetail);
     } else {
