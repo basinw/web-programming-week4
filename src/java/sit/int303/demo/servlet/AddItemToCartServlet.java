@@ -30,7 +30,7 @@ import sit.int303.demo.model.controller.ProductJpaController;
 public class AddItemToCartServlet extends HttpServlet {
   @PersistenceUnit(unitName = "DemoWebAppG2PU")
   EntityManagerFactory emf;
-  
+    
   @Resource
   UserTransaction utx;
   /**
@@ -55,9 +55,8 @@ public class AddItemToCartServlet extends HttpServlet {
     OrderDetail orderDetail = new OrderDetail(1, productCode);
     orderDetail.setQuantityordered(1);
     orderDetail.setProduct(product);
-    System.out.println(orderDetail);
+    orderDetail.setPriceeach(product.getMsrp());
     cart.addItem(orderDetail);
-    System.out.println("size: " + cart.getSize());
     getServletContext().getRequestDispatcher("/ProductList").forward(request, response);
     
   }

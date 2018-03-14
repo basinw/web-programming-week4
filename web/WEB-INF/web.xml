@@ -16,6 +16,10 @@
         <servlet-name>ProductListServelet</servlet-name>
         <servlet-class>sit.int303.demo.servlet.ProductListServelet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.UpdateCartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerySimpleServelet</servlet-name>
         <url-pattern>/VerySimple</url-pattern>
@@ -32,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>ProductListServelet</servlet-name>
         <url-pattern>/ProductList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <url-pattern>/UpdateCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

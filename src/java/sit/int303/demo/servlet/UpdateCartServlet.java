@@ -7,30 +7,17 @@ package sit.int303.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.annotation.Resource;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.UserTransaction;
-import sit.int303.demo.model.Product;
-import sit.int303.demo.model.controller.ProductJpaController;
 
 /**
  *
  * @author bas
  */
-public class ProductListServelet extends HttpServlet {
-  @PersistenceUnit(unitName = "DemoWebAppG2PU")
-  EntityManagerFactory emf;
-  
-  @Resource
-  UserTransaction utx;
-  
+public class UpdateCartServlet extends HttpServlet {
+
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
    * methods.
@@ -40,38 +27,21 @@ public class ProductListServelet extends HttpServlet {
    * @throws ServletException if a servlet-specific error occurs
    * @throws IOException if an I/O error occurs
    */
-  protected void processRequest(final HttpServletRequest request, HttpServletResponse response)
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-    String productName = request.getParameter("productName");
-    ProductJpaController productJpaCtrl = new ProductJpaController(utx, emf);
-    if (productName == null) {
-      List<Product> products = null;
-      Cookie cookies[] = request.getCookies();
-      products = productJpaCtrl.findProductEntities();
-      if(cookies != null) {
-        for (Cookie ck : cookies) {
-          if (ck.getName().equalsIgnoreCase("lastKey")) {
-            products = productJpaCtrl.findByProductName(ck.getValue());
-            break;
-          }
-        }
-      }
-      request.setAttribute("products", products);
-    } else {
-      List<Product> products = productJpaCtrl.findByProductName(productName);
-      if (products.isEmpty()) {
-        request.setAttribute("message", "Product " + productName + " does not exist!!!");
-      } else {
-        request.setAttribute("products", products);
-        Cookie ck = new Cookie("lastKey", productName);
-//        ck.setMaxAge(7 * 24 * 60 * 60); //cookie 1 week
-        response.addCookie(ck);
-      }
-
+    response.setContentType("text/html;charset=UTF-8");
+    try (PrintWriter out = response.getWriter()) {
+      /* TODO output your page here. You may use following sample code. */
+      out.println("<!DOCTYPE html>");
+      out.println("<html>");
+      out.println("<head>");
+      out.println("<title>Servlet UpdateCartServlet</title>");      
+      out.println("</head>");
+      out.println("<body>");
+      out.println("<h1>Servlet UpdateCartServlet at " + request.getContextPath() + "</h1>");
+      out.println("</body>");
+      out.println("</html>");
     }
-    
-    getServletContext().getRequestDispatcher("/ProductList.jsp").forward(request, response);
-//    getServletContext().getRequestDispatcher("/ProductListUsingDatatable.jsp").forward(request, response);
   }
 
   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

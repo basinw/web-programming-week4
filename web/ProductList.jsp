@@ -45,6 +45,10 @@
                                         <img src="https://scraperking.com/wp-content/uploads/2015/01/Amazon_logo-9.gif" width="20px"/>
                                     </a>
                                     ${cart.size}
+                                    <%! int a = 0; %>
+                                    
+                                    <% String b ="sawasdee"; %>
+                                    
                                 </td>
                             </tr>
                         </table>

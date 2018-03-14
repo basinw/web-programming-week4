@@ -4,6 +4,7 @@
     Author     : bas
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -29,24 +30,40 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11">
-                    
-                    <c:forEach items="${sessionScope.cart.orders}" var="od" varStatus="vs">
-                        <div class="row">
-                            <c:set var="p" value="${od.product}" />
-                            <c:set var="cutPos" value="${fn:indexOf(p.productline.productline, ' ')}"/>
-                            <c:set var="path" value="${cutPos > 0 ? fn:substring(p.productline.productline, 0, cutPos) : p.productline.productline}"/>
-                            <c:set var="imgFile" value="model-images/${fn:toLowerCase(path)}/${p.productcode}.jpg"/>
-                            <div class="col-md-4 col-3">
-                                <div class="img-thumbnail " style="height: 120px">
-                                    <img src="${imgFile}">
-                                </div>
-                            </div>
-                                <div class="col-md-3">${p.productname}</div>
-                                <div class="col-md-2">${p.msrp}</div>
-                                <div class="col-md-1">${od.quantityordered}</div>
-                                <div class="col-md-2">${od.quantityordered * p.msrp}</div>
-                        </div>
-                    </c:forEach>
+                    <table border="1" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Photo</th>
+                                <th>Detail</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${sessionScope.cart.orders}" var="od" varStatus="vs">
+                                <c:set var="p" value="${od.product}" />
+                                <c:set var="cutPos" value="${fn:indexOf(p.productline.productline, ' ')}"/>
+                                <c:set var="path" value="${cutPos > 0 ? fn:substring(p.productline.productline, 0, cutPos) : p.productline.productline}"/>
+                                <c:set var="imgFile" value="model-images/${fn:toLowerCase(path)}/${p.productcode}.jpg"/>
+                                <tr>
+                                    <th>${vs.count}</th>
+                                    <td>
+                                        <img src="${imgFile}" width="100">
+                                    </td>
+                                    <td>${p.productname}</td>
+                                    <td>${p.msrp}</td>
+                                    <td style="width: 15px">${od.quantityordered}</td>
+                                    <td>${od.quantityordered * p.msrp}</td>
+                                </tr>
+                            </c:forEach>
+                            <tr class="text-right">
+                                <td colspan="5">Total Price</td>
+                                <td><fmt:formatNumber pattern="#,###.###">${cart.totalPrice}</fmt:formatNumber></td>
+                            <tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
