@@ -7,10 +7,14 @@ package sit.int303.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sit.int303.demo.model.Cart;
+import sit.int303.demo.model.OrderDetailPK;
 
 /**
  *
@@ -29,18 +33,45 @@ public class UpdateCartServlet extends HttpServlet {
    */
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-    try (PrintWriter out = response.getWriter()) {
-      /* TODO output your page here. You may use following sample code. */
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("<title>Servlet UpdateCartServlet</title>");      
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<h1>Servlet UpdateCartServlet at " + request.getContextPath() + "</h1>");
-      out.println("</body>");
-      out.println("</html>");
+    HttpSession session = request.getSession(false);
+    if(session != null) {
+      Cart cart = (Cart) session.getAttribute("cart");
+      if (cart == null) {
+        response.sendError(500, "Unknow error .. your cart is missing !!!");
+        return;
+      } else {
+        String[] selectedItem = request.getParameterValues("deleteItems");
+        if (selectedItem != null) {
+          for (String productCode : selectedItem) {
+            System.out.println(productCode);
+            OrderDetailPK odpk = new OrderDetailPK(1, productCode);
+            cart.remove(odpk);
+          }
+        }
+        
+        Enumeration<String> productCodes = request.getParameterNames();
+        while(productCodes.hasMoreElements()) {
+          String code = productCodes.nextElement();
+          if(code.equalsIgnoreCase("deleteItems")){
+            continue;
+          }
+          int value = Integer.valueOf(request.getParameter(code));
+          OrderDetailPK odpk = new OrderDetailPK(1, code); // สร้าง orderDetail เป็น 1
+          if(cart.getItem(odpk) != null) {
+            if(value == 0) {
+              cart.remove(odpk);
+            } else {
+              cart.getItem(odpk).setQuantityordered(value);
+            }
+          }
+//          System.out.printf("code: %-10s value: %s\n", code, request.getParameter(code));
+        }
+        getServletContext().getRequestDispatcher("/ViewCart").forward(request, response);
+        return;
+      }
+    }else {
+      response.sendError(500, "Http Session expired ... Please add new product to your cart again");
+      return;
     }
   }
 

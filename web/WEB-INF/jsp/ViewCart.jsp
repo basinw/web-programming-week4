@@ -30,40 +30,58 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11">
-                    <table border="1" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Photo</th>
-                                <th>Detail</th>
-                                <th>Unit Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${sessionScope.cart.orders}" var="od" varStatus="vs">
-                                <c:set var="p" value="${od.product}" />
-                                <c:set var="cutPos" value="${fn:indexOf(p.productline.productline, ' ')}"/>
-                                <c:set var="path" value="${cutPos > 0 ? fn:substring(p.productline.productline, 0, cutPos) : p.productline.productline}"/>
-                                <c:set var="imgFile" value="model-images/${fn:toLowerCase(path)}/${p.productcode}.jpg"/>
+                    <form action="UpdateCart" method="post">
+                        <table border="1" style="width: 100%">
+                            <thead>
                                 <tr>
-                                    <th>${vs.count}</th>
-                                    <td>
-                                        <img src="${imgFile}" width="100">
-                                    </td>
-                                    <td>${p.productname}</td>
-                                    <td>${p.msrp}</td>
-                                    <td style="width: 15px">${od.quantityordered}</td>
-                                    <td>${od.quantityordered * p.msrp}</td>
+                                    <th>No</th>
+                                    <th>Photo</th>
+                                    <th>Detail</th>
+                                    <th>Unit Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>Delete</th>
                                 </tr>
-                            </c:forEach>
-                            <tr class="text-right">
-                                <td colspan="5">Total Price</td>
-                                <td><fmt:formatNumber pattern="#,###.###">${cart.totalPrice}</fmt:formatNumber></td>
-                            <tr>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${sessionScope.cart.orders}" var="od" varStatus="vs">
+                                    <c:set var="p" value="${od.product}" />
+                                    <c:set var="cutPos" value="${fn:indexOf(p.productline.productline, ' ')}"/>
+                                    <c:set var="path" value="${cutPos > 0 ? fn:substring(p.productline.productline, 0, cutPos) : p.productline.productline}"/>
+                                    <c:set var="imgFile" value="model-images/${fn:toLowerCase(path)}/${p.productcode}.jpg"/>
+                                    <tr>
+                                        <th>${vs.count}</th>
+                                        <td>
+                                            <img src="${imgFile}" width="100">
+                                        </td>
+                                        <td>${p.productname}</td>
+                                        <td>${p.msrp}</td>
+                                        <td style="width: 15px;">
+                                            <input style="width: 100%;"name="${p.productcode}" value="${od.quantityordered}" type="number" />
+                                        </td>
+                                        <td>${od.quantityordered * p.msrp}</td>
+                                        <td>
+                                            <input type="checkbox" name="deleteItems" value="${p.productcode}" />
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                <tr class="text-right">
+                                    <td colspan="5">Total Price: </td>
+                                    <td>
+                                        <fmt:formatNumber pattern="#,###.###" value="${cart.totalPrice}" />
+                                    </td>
+                                <tr>
+                                <tr class="text-right">
+                                    <td colspan="6">
+                                        <button class="btn btn-primary" type="submit">Update</button>
+                                    </td>
+                                <tr>
+                            </tbody>
+                        </table>
+                        <div class="text-right">
+                            
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
