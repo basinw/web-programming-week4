@@ -15,8 +15,8 @@
         <h1>OOP ! Something </h1> 
         <hr/>
         <h4>
-            Error code: ${pageContext.errorData.statusCode}<br/>
-            Error message: <span style="color: red" >${pageContext.exception}</span>
+            Error code: <span style="color: red">${pageContext.errorData.statusCode}</span><br/>
+            Error message: <span style="color: red" >${pageContext.errorData.statusCode == 404 ? "Document Not Found": pageContext.exception}</span>
         </h4>
     </body>
 </html>
