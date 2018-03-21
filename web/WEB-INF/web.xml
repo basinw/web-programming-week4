@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>Logger</filter-name>
+        <filter-class>sit.int303.demo.filter.LoggerFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>FormChecker</filter-name>
+        <filter-class>sit.int303.demo.filter.FormCheckerFilter</filter-class>
+        <init-param>
+            <param-name>userName</param-name>
+            <param-value>userName</param-value>
+        </init-param>
+        <init-param>
+            <param-name>emailAddress</param-name>
+            <param-value>emailAddress</param-value>
+        </init-param>
+        <init-param>
+            <param-name>TARGET</param-name>
+            <param-value>/Register.jsp</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>TrailerFilter</filter-name>
+        <filter-class>sit.int303.demo.filter.TrailerFilter</filter-class>
+        <init-param>
+            <param-name>message</param-name>
+            <param-value>(C) Copyright SIT KMUTT</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>TrailerFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FormChecker</filter-name>
+        <servlet-name>RegisterServlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Logger</filter-name>
+        <servlet-name>VerySimpleServelet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
     <servlet>
         <servlet-name>VerySimpleServelet</servlet-name>
         <servlet-class>sit.int303.demo.servlet.VerySimpleServelet</servlet-class>
@@ -19,6 +64,10 @@
     <servlet>
         <servlet-name>UpdateCartServlet</servlet-name>
         <servlet-class>sit.int303.demo.servlet.UpdateCartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>VerySimpleServelet</servlet-name>
@@ -40,6 +89,10 @@
     <servlet-mapping>
         <servlet-name>UpdateCartServlet</servlet-name>
         <url-pattern>/UpdateCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/Register</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

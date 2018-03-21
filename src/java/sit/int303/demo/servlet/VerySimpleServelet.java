@@ -78,7 +78,7 @@ public class VerySimpleServelet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
             
-            response.sendRedirect("/");
+//            response.sendRedirect("/");
             
         }
     }
