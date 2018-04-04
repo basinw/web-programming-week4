@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib uri="/WEB-INF/tlds/MyTagLib.tld" prefix="mf" %>
+<%@taglib tagdir="/WEB-INF/tags/" prefix="tf" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,25 +53,7 @@
                 <div class="col-sm-10 col-lg-10">
                     <div class="row">
                         <c:forEach items="${products}" var="p" varStatus="vs" >
-                            <c:set var="cutPos" value="${fn:indexOf(p.productline.productline, ' ')}"/>
-                            <c:set var="path" value="${cutPos > 0 ? fn:substring(p.productline.productline, 0, cutPos) : p.productline.productline}"/>
-                            <c:set var="imgFile" value="model-images/${fn:toLowerCase(path)}/${p.productcode}.jpg"/>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <a href="ProductManager?productCode=${p.productcode}">
-                                        <img class="img-thumbnail"
-                                             src="${mf:getImageFileName(p.productline.productline, p.productcode)}" title="${p.productcode}">
-                                    </a>
-                                    <a href="AddItemToCart?item=${p.productcode}">
-                                        <img src="https://scraperking.com/wp-content/uploads/2015/01/Amazon_logo-9.gif" width="20px"/>
-                                    </a>
-                                    
-                                    <div class="caption">
-                                        <p>${p.productname}  | Scale:  ${p.productscale}  | Price: ${p.msrp} $US </p>
-
-                                    </div>
-                                </div>
-                            </div>
+                            <tf:ProductCard p="${p}" />
                         </c:forEach>
                     </div>
                 </div>
