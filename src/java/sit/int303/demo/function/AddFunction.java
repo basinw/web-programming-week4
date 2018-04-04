@@ -15,7 +15,7 @@ public class AddFunction {
   public static String getImageFileName(String productLine, String productcode) {
     int cutPos = productLine.indexOf(" ");
     String productLinePath = cutPos > 0 ? productLine.substring(0, cutPos) : productLine;
-    return IMAGE_PATH + productLinePath.toLowerCase() + "/" + productcode + ".jpg";
+    return String.format("%s%s/%s.jpg", IMAGE_PATH, productLinePath.toLowerCase(), productcode);
   }
           
   public static int addMethod(String x, String y) {

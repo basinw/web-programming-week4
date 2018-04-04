@@ -30,7 +30,7 @@
     </filter>
     <filter-mapping>
         <filter-name>TrailerFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>VerySimpleServelet</servlet-name>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
     <filter-mapping>
@@ -69,6 +69,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>sit.int303.demo.servlet.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.LoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerySimpleServelet</servlet-name>
         <url-pattern>/VerySimple</url-pattern>
@@ -93,6 +97,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

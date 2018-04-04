@@ -12,4 +12,13 @@
           int addMethod(java.lang.String, java.lang.String)
       </function-signature>
   </function>
+  <function>
+      <name>getImageFileName</name>
+      <function-class>
+          sit.int303.demo.function.AddFunction
+      </function-class>
+      <function-signature>
+          java.lang.String getImageFileName(java.lang.String, java.lang.String)
+      </function-signature>
+  </function>
 </taglib>

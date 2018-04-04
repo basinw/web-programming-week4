@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib uri="/WEB-INF/tlds/MyTagLib.tld" prefix="mf" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,10 +25,9 @@
     </head>
     <body>
         <div class="container">
+            <jsp:include  page="/WEB-INF/jsp/header.jsp?title=Product List" flush="true" />
             <div class="row justify-content-center">
-                <div class="col-sm-10 col-md-8">
-                    <button onClick="function () {window.alert('hello')}">button</button>
-                    <h3>Product List :: </h3> <hr />
+                <div class="col-sm-10 col-md-8"><hr />
                     <form action="ProductList" method="post">
                         <table class="table-striped table-bordered">
                             <tr>
@@ -39,16 +39,6 @@
                                 </td>
                                 <td>
                                     <button class="btn btn-primary">submit</button>
-                                </td>
-                                <td style="padding-left: 100px; width: 40%; text-align: right;">
-                                    <a href="ViewCart">
-                                        <img src="https://scraperking.com/wp-content/uploads/2015/01/Amazon_logo-9.gif" width="20px"/>
-                                    </a>
-                                    ${cart.size}
-                                    <%! int a = 0; %>
-                                    
-                                    <% String b ="sawasdee"; %>
-                                    
                                 </td>
                             </tr>
                         </table>
@@ -68,7 +58,8 @@
                             <div class="col-md-3">
                                 <div class="thumbnail">
                                     <a href="ProductManager?productCode=${p.productcode}">
-                                        <img class="img-thumbnail"  src="${imgFile}" title="${p.productcode}">
+                                        <img class="img-thumbnail"
+                                             src="${mf:getImageFileName(p.productline.productline, p.productcode)}" title="${p.productcode}">
                                     </a>
                                     <a href="AddItemToCart?item=${p.productcode}">
                                         <img src="https://scraperking.com/wp-content/uploads/2015/01/Amazon_logo-9.gif" width="20px"/>
