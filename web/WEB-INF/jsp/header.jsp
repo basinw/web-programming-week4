@@ -10,8 +10,8 @@
                 <h2>${param.title} ::</h2>
             </div>
             <div class="col-lg-2 align-bottom align-text-bottom" style="text-align: center">
-                <a href="${user!=null ? 'Logout' : 'Log in'}" title="${user!=null ? 'Logout' : 'Log in'}">
-                    <img  src="http://files.softicons.com/download/application-icons/must-have-icons-by-visualpharm/png/256/User.png" width="20">
+                <a href="${user!=null ? 'Logout' : 'Login'}" title="Click to ${user!=null ? 'Logout' : 'Login'}">
+                    <img  src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100" width="20">
                 </a>
                 <br>
                 Welcome ${sessionScope.user==null ? 'Guest !' : user.customername}

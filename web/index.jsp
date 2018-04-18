@@ -20,13 +20,18 @@
                 <div class="col-sm-1 col-lg-1"></div>
                 <div class="col-sm-10 col-lg-10">
                     M a i n &nbsp;  M e nu : : <br>
+                    <p><a href="Page1">Page #1</a></p>
+                    <p><a href="Page2">Page #2</a></p>
+                    <p><a href="Page3">Page #3</a></p>
+                    <p><a href="Page4">Page #4</a></p>
+                    --------------------------------
                     <p><a href="ProductList">Our Product</a></p>
                     <p><a href="">Order History</a></p>
                     <p><a href="">Your Profile</a></p>
                     --------------------------------
                     <p>                           
                         <a href="${user!=null ? 'Logout' : 'Login'}">
-                            ${user!=null ? 'Logout' : 'Log in'}
+                            ${user!=null ? 'Logout' : 'Login'}
                         </a>
                     </p>
                 </div>
