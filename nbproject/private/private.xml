@@ -10,12 +10,16 @@
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/servlet/LoginServlet.java</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductInfo.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/web.xml</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/TestTagFile.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductListUsingDatatable.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/tag/TransformTag/TranformTag.java</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductList.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/TestELFunction.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/ProductCard.tag</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/glassfish-resources.xml</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/conf/persistence.xml</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/header.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/Transform.tag</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/Login.jsp</file>
         </group>
     </open-files>
