@@ -3,24 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/function/AddFunction.java</file>
-            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/index.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/servlet/LogoutServlet.java</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/Login.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/SimplyStat2.tag</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tlds/MyTagLib.tld</file>
-            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/servlet/ProductListServelet.java</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/TestLetter.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/servlet/LoginServlet.java</file>
-            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductInfo.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/web.xml</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/TestTagFile.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductList.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/SimplyStat.tag</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/Page4.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/Letter.tag</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/Page1.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/Transform.tag</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/function/AddFunction.java</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/index.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/servlet/ProductListServelet.java</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/Page2.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductInfo.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/TestSimplyStat.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductListUsingDatatable.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/tag/TransformTag/TranformTag.java</file>
-            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/ProductList.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/TestELFunction.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/ProductCard.tag</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/glassfish-resources.xml</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/conf/persistence.xml</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/header.jsp</file>
-            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/tags/Transform.tag</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/Page3.jsp</file>
             <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/web/WEB-INF/jsp/Login.jsp</file>
+            <file>file:/D:/Downloads/document/NetBeansProjects/demo_web_g2/src/java/sit/int303/demo/servlet/Page1Servlet.java</file>
         </group>
     </open-files>
 </project-private>

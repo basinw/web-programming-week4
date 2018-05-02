@@ -72,6 +72,9 @@
                                     </td>
                                 <tr>
                                 <tr class="text-right">
+                                    <td>
+                                        <a class="btn btn-primary" href="ProcessOrder">submit progress</a>
+                                    </td>
                                     <td colspan="6">
                                         <button class="btn btn-primary" type="submit">Update</button>
                                     </td>

@@ -166,6 +166,7 @@
                                             <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
                                             <label for="remember"> Remember Me</label>
                                         </div>
+                                        <input type="hidden" name="targetUrl" value="${param.targetUrl}"/>
                                         <c:if test="${message != null}">
                                             <div class="alert alert-danger" role="alert">
                                                 ${message}

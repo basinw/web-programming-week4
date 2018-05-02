@@ -7,27 +7,17 @@ package sit.int303.demo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.annotation.Resource;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.UserTransaction;
-import sit.int303.demo.model.Customer;
-import sit.int303.demo.model.controller.CustomerJpaController;
 
 /**
  *
  * @author bas
  */
-public class LoginServlet extends HttpServlet {
-  @PersistenceUnit(unitName = "DemoWebAppG2PU")
-  EntityManagerFactory emf;
-  
-  @Resource
-  UserTransaction utx;
+public class Page3Servlet extends HttpServlet {
+
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
    * methods.
@@ -39,35 +29,7 @@ public class LoginServlet extends HttpServlet {
    */
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-    String userName = request.getParameter("userName");
-    String password = request.getParameter("password");
-
-    if (userName != null && password != null) {
-      CustomerJpaController customerJpaCtrl = new CustomerJpaController(utx, emf);
-      Customer c = null;
-      try {
-        c = customerJpaCtrl.findCustomer(Integer.valueOf(userName));
-      } catch (NumberFormatException e) {
-        /*
-         * Ignore error
-         */
-      }
-      if (c == null) { // customer id does not exist
-        request.setAttribute("message", "Invalid Username / password");
-      } else if (c.getContactfirstname().trim().equals(password)){
-        request.getSession().setAttribute("user", c);
-        String targetUrl = request.getParameter("targetUrl");
-        if (targetUrl == null || targetUrl.equals("")) {
-          targetUrl = "/index.jsp";
-        }
-        getServletContext().getRequestDispatcher(targetUrl).forward(request, response);
-        return;
-      } else {
-        request.setAttribute("message", "Invalid Username / password");
-      }
-    }
-    
-    getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
+    getServletContext().getRequestDispatcher("/WEB-INF/jsp/Page3.jsp").forward(request, response);
   }
 
   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -28,6 +28,20 @@
             <param-value>(C) Copyright SIT KMUTT</param-value>
         </init-param>
     </filter>
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>sit.int303.demo.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <servlet-name>Page1Servlet</servlet-name>
+        <servlet-name>Page2Servlet</servlet-name>
+        <servlet-name>Page3Servlet</servlet-name>
+        <servlet-name>Page4Servlet</servlet-name>
+        <servlet-name>ProcessOrderServlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
     <filter-mapping>
         <filter-name>TrailerFilter</filter-name>
         <servlet-name>VerySimpleServelet</servlet-name>
@@ -77,6 +91,27 @@
         <servlet-name>Page1Servlet</servlet-name>
         <servlet-class>sit.int303.demo.servlet.Page1Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Page2Servlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.Page2Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Page3Servlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.Page3Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Page4Servlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.Page4Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcessOrderServlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.ProcessOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AutoOrderNumberServlet</servlet-name>
+        <servlet-class>sit.int303.demo.servlet.AutoOrderNumberServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerySimpleServelet</servlet-name>
         <url-pattern>/VerySimple</url-pattern>
@@ -109,6 +144,26 @@
     <servlet-mapping>
         <servlet-name>Page1Servlet</servlet-name>
         <url-pattern>/Page1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Page2Servlet</servlet-name>
+        <url-pattern>/Page2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Page3Servlet</servlet-name>
+        <url-pattern>/Page3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Page4Servlet</servlet-name>
+        <url-pattern>/Page4</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessOrderServlet</servlet-name>
+        <url-pattern>/ProcessOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AutoOrderNumberServlet</servlet-name>
+        <url-pattern>/AutoOrderNumberServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
